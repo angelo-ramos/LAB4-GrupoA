@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+
+    <title >Candy&Crash</title>
+</head>
+<body>
+<div class="container px-4 py-5">
+    <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Lista de Mascotas en Veterinaria Candy&Crash</h1>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/new'}">Nueva mascota</a>
+
+    <table class="table table-striped">
+        <thead style="color: #0095f6">
+        <tr class="table-info">
+            <th style="text-align: center">id</th>
+            <th style="text-align: center">Hora inicio</th>
+            <th style="text-align: center">Duración</th>
+            <th style="text-align: center">Entrega</th>
+            <th style="text-align: center">Responsable</th>
+            <th style="text-align: center">Borrar</th>
+            <th style="text-align: center">Servicios</th>
+            <th style="text-align: center">Detalle de servicios</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mascota : ${listaMascotas}">
+            <th th:text="${mascota.nombre}" style="text-align: center; background-color: white">20192258</th>
+            <th th:text="${mascota.anho}" style="text-align: center; background-color: white" >a20192258@pucp.edu.pe</th>
+            <th th:text="${mascota.sexo}" style="text-align: center; background-color: white">993606147</th>
+            <th th:text="${mascota.raza}" style="text-align: center; background-color: white">72673679</th>
+            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Editar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/shipper/delete' + '?id=' }">Borrar</a></td>
+            <th th:text="${mascota.servicios}" style="text-align: center; background-color: white">1</th>
+            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Ver mas</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

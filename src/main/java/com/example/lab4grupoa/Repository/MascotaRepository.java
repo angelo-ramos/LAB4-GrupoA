@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
-    @Query(value = "select nombre, anho, sexo, replace(descripcion,'Perro:','') as 'raza', count(idservicio) as 'servicios'\n" +
+    @Query(value = "select idmascota, nombre, anho, sexo, replace(descripcion,'Perro:','') as 'raza', count(idservicio) as 'servicios'\n" +
             "from mascota m \n" +
             "\tleft join servicio s on (m.idmascota = s.mascota_idmascota)\n" +
             "    left join raza_especie re on (m.raza_especie_idraza = re.idraza)\n" +

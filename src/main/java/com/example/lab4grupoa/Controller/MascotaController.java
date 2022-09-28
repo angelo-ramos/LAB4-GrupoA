@@ -57,4 +57,11 @@ public class MascotaController {
             return "redirect:/mascota/listar";
         }
     }
+
+    @GetMapping("/servicio")
+    public String DetalleServicio(Model model){
+
+        return "detalleservicio";
+    }
 }
+
