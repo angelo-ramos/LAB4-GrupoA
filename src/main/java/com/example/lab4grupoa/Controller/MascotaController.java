@@ -40,6 +40,7 @@ public class MascotaController {
     @PostMapping("/filtrar")
     public String filtrarMascotas(Model model, @RequestParam("searchField") String searchField){
         model.addAttribute("listaMascotas",mascotaRepository.filtrarMascotas(searchField));
+        model.addAttribute("searchField",searchField);
         return "lista";
     }
 
@@ -67,6 +68,13 @@ public class MascotaController {
         System.out.println(id);
         model.addAttribute("listaServicios",servicioRepository.listarServicioMascota(Integer.parseInt(id)));
         return "detalleservicio";
+    }
+
+    @GetMapping("/servicio/new")
+    public String NuevoServicio(Model model){
+        model.addAttribute("listaMascotas",mascotaRepository.findAll());
+        model.addAttribute("listaCuentas",cuentaRepository.findAll());
+        return "newService";
     }
 }
 

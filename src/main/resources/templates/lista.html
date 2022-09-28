@@ -21,9 +21,17 @@
 <div class="container px-4 py-5">
   <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Lista de Mascotas en Veterinaria Candy&Crash</h1>
   <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/new'}">Nueva mascota</a>
-  <form method="post" th:action="@{/mascota/filtrar}">
-    <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>
-  </form>
+  <div class="row">
+    <div class="col-auto">
+      <form method="post" th:action="@{/mascota/filtrar}">
+        <input name="searchField" class="form-control mb-3" type="text" th:value="${searchField}" placeholder="Buscar por sexo o raza"/>
+      </form>
+    </div>
+    <div class="col">
+      <a class="btn btn-primary" th:href="@{'/mascota/listar'}">Limpiar</a>
+    </div>
+  </div>
+
   <table class="table table-striped">
     <thead style="color: #0095f6">
     <tr class="table-info">
