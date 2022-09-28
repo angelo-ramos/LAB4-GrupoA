@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,6 +104,17 @@ public class MascotaController {
         model.addAttribute("listaCuentas",cuentaRepository.findAll());
         model.addAttribute("listaResponsables",responsableRepository.findAll());
         return "newService";
+    }
+    @PostMapping("/servicio/save")
+    public String GuardarServicio(Servicio servicio,
+                                  @RequestParam("fecha") String fecha,
+                                  @RequestParam("hora") String hora){
+
+        hora=hora+":00";
+        String hora_inicio = fecha + "T" + hora+"Z";
+        servicio.setHoraInicio(Instant.parse(hora_inicio));
+        servicioRepository.save(servicio);
+        return"redirect:/mascota/listar";
     }
 }
 

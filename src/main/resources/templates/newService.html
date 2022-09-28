@@ -19,24 +19,29 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="cuenta_idcuenta" class="form-label">Cuenta/Dueño</label>
-                <select name="cuenta_idcuenta" class="form-select" id="cuenta_idcuenta">
+                <label for="cuentaIdcuenta" class="form-label">Cuenta/Dueño</label>
+                <select name="cuentaIdcuenta" class="form-select" id="cuentaIdcuenta">
                     <option th:each="cuenta : ${listaCuentas}" th:text="${cuenta.correo}"
                             th:value="${cuenta.idcuenta}"></option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="horaInicio" class="form-label">Hora Inicio</label>
-                <input type="text" class="form-control" name="horaInicio" id="horaInicio">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" class="form-control" name="fecha" id="fecha">
 
             </div>
             <div class="mb-3">
-                <label for="duracion" class="form-label">Hora Inicio</label>
+                <label for="hora" class="form-label">Hora Inicio</label>
+                <input type="time" class="form-control" name="hora" id="hora">
+
+            </div>
+            <div class="mb-3">
+                <label for="duracion" class="form-label">Duración</label>
                 <input type="number" class="form-control" name="duracion" id="duracion">
 
             </div>
             <div class="mb-3">
-                <label for="entrega" class="form-label">Cuenta/Dueño</label>
+                <label for="entrega" class="form-label">Entrega</label>
                 <select name="entrega" class="form-select" id="entrega">
                     <option hidden>Seleccionar</option>
                     <option value="Recojo">Recojo</option>
