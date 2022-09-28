@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+          crossorigin="anonymous"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+
+  <title >Candy&Crash</title>
+</head>
+<body>
+<div class="container px-4 py-5">
+  <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Lista de Contactos Veterinaria Candy&Crash</h1>
+  <a class="btn btn-primary mt-4 mb-4" th:href="@{'/Duenho/new'}">Nuevo Dueño</a>
+
+  <table class="table table-striped">
+    <thead style="color: #0095f6">
+    <tr class="table-info">
+      <th style="text-align: center">Correo</th>
+      <th style="text-align: center">Dirección</th>
+      <th style="text-align: center">Teléfono</th>
+      <th style="text-align: center">Mascotas</th>
+    </thead>
+    <tbody>
+    <tr th:each="contacto : ${listacontacto}">
+      <th th:text="${contacto.correo}" style="text-align: center; background-color: white"></th>
+      <th th:text="${contacto.dirección}" style="text-align: center; background-color: white"></th>
+      <th th:text="${contacto.telefono}" style="text-align: center; background-color: white" ></th>
+      <th th:text="${conacto.mascotas}" style="text-align: center; background-color: white"></th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
