@@ -31,11 +31,11 @@
             <th style="text-align: center">Detalles</th>
         </thead>
         <tbody>
-        <tr th:each="contacto : ${listacontacto}">
+        <tr th:each="contacto : ${listarCantidad}">
             <th th:text="${contacto.correo}" style="text-align: center; background-color: white"></th>
             <th th:text="${contacto.cantmascotas}" style="text-align: center; background-color: white"></th>
             <td><a class="btn btn-danger" th:href="@{'/shipper/delete' + '?id=' }">Editar</a></td>
-            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Ver mas</a></td>
+            <td><a class="btn btn-primary" th:href="@{'/contacto/info' + '?id=' }">Ver mas</a></td>
         </tr>
         </tbody>
     </table>

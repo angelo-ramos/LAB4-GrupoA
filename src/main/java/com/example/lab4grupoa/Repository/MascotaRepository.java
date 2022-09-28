@@ -1,6 +1,7 @@
 package com.example.lab4grupoa.Repository;
 
 import com.example.lab4grupoa.Dto.ListarMascotasDto;
+import com.example.lab4grupoa.Dto.ListarNumMascotas;
 import com.example.lab4grupoa.Entity.Mascota;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,5 +26,11 @@ public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
             "group by nombre\n" +
             "having `raza` like %?1% or lower(sexo) like %?1%",nativeQuery = true)
     List<ListarMascotasDto> filtrarMascotas(String searchField);
+
+    @Query(value = "SELECT c.idcuenta,count(c.idcuenta) FROM cuenta c \n" +
+            "inner join servicio s on (c.idcuenta=s.cuenta_idcuenta)\n" +
+            "inner join mascota m on (s.mascota_idmascota=m.idmascota)\n" +
+            "where c.idcuenta=?1",nativeQuery = true)
+    List<ListarMascotasDto>listarCantidad();
 
 }

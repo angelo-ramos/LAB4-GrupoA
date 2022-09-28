@@ -31,12 +31,12 @@
       <th style="text-align: center">Mascotas</th>
     </thead>
     <tbody>
-    <tr th:each="contacto : ${listacontacto}">
-      <th th:text="${contacto.correo}" style="text-align: center; background-color: white"></th>
-      <th th:text="${contacto.dirección}" style="text-align: center; background-color: white"></th>
-      <th th:text="${contacto.telefono}" style="text-align: center; background-color: white" ></th>
+
+      <th th:text="${cuenta.correo}" style="text-align: center; background-color: white"></th>
+      <th th:text="${cuenta.dirección}" style="text-align: center; background-color: white"></th>
+      <th th:text="${cuenta.telefono}" style="text-align: center; background-color: white" ></th>
       <th th:text="${conacto.mascotas}" style="text-align: center; background-color: white"></th>
-    </tr>
+
     </tbody>
   </table>
 </div>
