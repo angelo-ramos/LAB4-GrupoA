@@ -26,17 +26,16 @@
         <thead style="color: #0095f6">
         <tr class="table-info">
             <th style="text-align: center">Correo</th>
-            <th style="text-align: center">Dirección</th>
-            <th style="text-align: center">Teléfono</th>
-            <th style="text-align: center">Mascota</th>
-            <th style="text-align: center"></th>
+            <th style="text-align: center">n° Mascotas</th>
+            <th style="text-align: center">Editar</th>
+            <th style="text-align: center">Detalles</th>
         </thead>
         <tbody>
         <tr th:each="contacto : ${listacontacto}">
             <th th:text="${contacto.correo}" style="text-align: center; background-color: white"></th>
-            <th th:text="${cantmascotas}" style="text-align: center; background-color: white"></th>
-            <td><a style="display: block;margin-bottom: 5px" class="btn btn-danger" th:href="@{'/contacto/editar' + '?id=' }">Editar</a></td>
-            <td><a style="display: block;margin-bottom: 5px" class="btn btn-primary" th:href="@{'/contacto/info' + '?id=' }">Ver mas</a></td>
+            <th th:text="${contacto.cantmascotas}" style="text-align: center; background-color: white"></th>
+            <td><a class="btn btn-danger" th:href="@{'/shipper/delete' + '?id=' }">Editar</a></td>
+            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Ver mas</a></td>
         </tr>
         </tbody>
     </table>

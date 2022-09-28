@@ -3,14 +3,21 @@ package com.example.lab4grupoa.Controller;
 import com.example.lab4grupoa.Dto.ListarMascotasDto;
 import com.example.lab4grupoa.Entity.Mascota;
 import com.example.lab4grupoa.Repository.*;
+import com.example.lab4grupoa.Entity.Servicio;
+import com.example.lab4grupoa.Repository.CuentaRepository;
+import com.example.lab4grupoa.Repository.MascotaRepository;
+import com.example.lab4grupoa.Repository.RazaEspecieRepository;
+import com.example.lab4grupoa.Repository.ServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/mascota")
@@ -67,6 +74,27 @@ public class MascotaController {
         System.out.println(id);
         model.addAttribute("listaServicios",servicioRepository.listarServicioMascota(Integer.parseInt(id)));
         return "detalleservicio";
+    }
+
+    @GetMapping("/delete")
+    public String borrar(@RequestParam("id") int idmascota) {
+        Optional<Mascota> optional = mascotaRepository.findById(idmascota);
+        if (optional.isPresent()) {
+            mascotaRepository.deleteById(idmascota);
+        }
+        return "redirect:/mascota/listar";
+    }
+
+    @GetMapping("/delete1")
+    public String borrar1(@RequestParam("id") int idmascota, Model model) {
+        Optional<Mascota> optional = mascotaRepository.findById(idmascota);
+        if (optional.isPresent()) {
+            List<ListarMascotasDto> listita = mascotaRepository.listarMascotas();
+            listita.remove(idmascota);
+            model.addAttribute("listaMascotas",listita);
+            return "lista";
+        }
+        return "redirect:/mascota/listar";
     }
 
     @GetMapping("/servicio/new")
