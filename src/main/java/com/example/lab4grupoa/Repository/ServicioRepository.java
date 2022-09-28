@@ -17,4 +17,6 @@ public interface ServicioRepository extends JpaRepository<Servicio,Integer> {
             "(r.idresponsable=s.responsable_idresponsable) where idmascota= ?1"
             ,nativeQuery = true)
     List<ListarServiciosMascotaDto> listarServicioMascota(Integer id);
+
+
 }
