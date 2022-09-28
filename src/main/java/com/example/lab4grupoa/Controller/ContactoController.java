@@ -24,29 +24,21 @@ public class ContactoController {
     @GetMapping(value = {"", "/", "list"})
     public String listarCuentas(Model model) {
         List<Cuenta> lista = CuentaRepository.findAll();
-        model.addAttribute("shipperList", lista);
+        model.addAttribute("contactoList", lista);
         return "contacto/list";
     }
 
     @RequestMapping("/contacto")
-        @GetMapping("/new")
-        public String nuevaCuentaFrm(Model model) {
-            model.addAttribute("listaCuentas", listarCuentas());
-            return "employee/newFrm";
-        }
+    @GetMapping("/new")
+    public String nuevaCuentaFrm() {
+        return "conatcto/newFrm";
+    }
 
-
-        @PostMapping("/save")
-        public String guardarCuenta(Cuenta cuenta,
-                                      @RequestParam("telStr") String telStr,
-                                      @RequestParam("correoStr") String correoStr
+    @PostMapping("/save")
+    public String guardarCuenta(Cuenta cuenta,
+                                @RequestParam("telStr") String telStr,
+                                @RequestParam("correoStr") String correoStr
                                       ) {
-
-
-            try {
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
 
             CuentaRepository.save(cuenta);
             return "redirect:/cuenta";
@@ -54,13 +46,13 @@ public class ContactoController {
 
         @GetMapping("/editar")
 
-            public String editarTransportista(Model model,
+            public String editarCuenta(Model model,
             @RequestParam("id") int id) {
 
-                Optional<Cuenta> optShipper = CuentaRepository.findById(id);
+                Optional<Cuenta> optCuenta = CuentaRepository.findById(id);
 
-                if (optShipper.isPresent()) {
-                    Cuenta cuenta = optShipper.get();
+                if (optCuenta.isPresent()) {
+                    Cuenta cuenta = optCuenta.get();
                     model.addAttribute("cuenta", cuenta);
                     return "contacto/editFrm";
                 } else {
