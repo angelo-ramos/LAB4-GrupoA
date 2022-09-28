@@ -24,7 +24,7 @@ public class Cuenta {
 
 
     @Column(name = "password")
-    @Size(min = 8)
+    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{2}[A-Za-z\\d@$!%*?&]{8,}$",message="Solo formato permitido")
     private String password;
 
     @Column(name = "telefono")
