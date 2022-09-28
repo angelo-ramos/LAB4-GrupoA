@@ -91,7 +91,7 @@ public class MascotaController {
         Optional<Mascota> optional = mascotaRepository.findById(idmascota);
         if (optional.isPresent()) {
             List<ListarMascotasDto> listita = mascotaRepository.listarMascotas();
-            listita.remove(idmascota);
+            listita.remove(idmascota-1);
             model.addAttribute("listaMascotas",listita);
             return "lista";
         }
