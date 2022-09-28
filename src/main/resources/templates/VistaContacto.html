@@ -21,9 +21,7 @@
 <div class="container px-4 py-5">
     <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Lista de Contactos Veterinaria Candy&Crash</h1>
     <a class="btn btn-primary mt-4 mb-4" th:href="@{'/contacto/new'}">Nuevo contacto</a>
-    <form method="post" th:action="@{/mascota/filtrar}">
-        <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>
-    </form>
+
     <table class="table table-striped">
         <thead style="color: #0095f6">
         <tr class="table-info">
