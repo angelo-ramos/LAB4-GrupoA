@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <title>Nueva mascota</title>
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 mb-3 border-bottom">Nuevo Mascota</h1>
+                <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/new'}">Nuevo Dueño</a>
+                <form method="post" th:action="@{'/mascota/save'}" class="mt-2">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input th:field="${mascota.nombre}" type="text" class="form-control" name="nombre" id="nombre"
+                               th:classappend="${#fields.hasErrors('mascota.nombre')?'is-invalid':''}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.nombre')}"
+                             th:errors="${mascota.nombre}">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="anho" class="form-label">Año</label>
+                        <input th:field="${mascota.anho}" type="text" class="form-control" name="anho" id="anho"
+                               th:classappend="${#fields.hasErrors('mascota.anho')?'is-invalid':''}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.anho')}"
+                             th:errors="${mascota.anho}">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="historia" class="form-label">Historia</label>
+                        <input th:field="${mascota.historia}" type="text" class="form-control" name="historia" id="historia"
+                               th:classappend="${#fields.hasErrors('mascota.historia')?'is-invalid':''}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.historia')}"
+                             th:errors="${mascota.historia}">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="observaciones" class="form-label">Observaciones</label>
+                        <input th:field="${mascota.observaciones}" type="text" class="form-control" name="observaciones" id="observaciones"
+                               th:classappend="${#fields.hasErrors('mascota.observaciones')?'is-invalid':''}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.observaciones')}"
+                             th:errors="${mascota.observaciones}">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select name="sexo" class="form-select" id="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="razaEspecieIdraza" class="form-label">Raza</label>
+                        <select name="razaEspecieIdraza" class="form-select" id="razaEspecieIdraza">
+                            <option th:each="raza : ${listaRazas}" th:text="${raza.descripcion}"
+                                    th:value="${raza.idraza}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="razaOtros" class="form-label">Raza otros</label>
+                        <input th:field="${mascota.razaOtros}" type="text" class="form-control" name="razaOtros" id="razaOtros"
+                               th:classappend="${#fields.hasErrors('mascota.razaOtros')?'is-invalid':''}">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.razaOtros')}"
+                             th:errors="${mascota.razaOtros}">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cuentaIdcuenta" class="form-label">Dueño/cuenta</label>
+                        <select name="cuentaIdcuenta" class="form-select" id="cuentaIdcuenta">
+                            <option th:each="cuenta : ${listaCuentas}" th:text="${cuenta.correo}"
+                                    th:value="${cuenta.idcuenta}"></option>
+                        </select>
+                    </div>
+                    <a th:href="@{'/mascota/listar'}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </main>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>
