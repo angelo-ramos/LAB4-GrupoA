@@ -1,4 +1,4 @@
-package com.example.lab4grupoa.Controller;
+/*package com.example.lab4grupoa.Controller;
 
 import com.example.lab4grupoa.Entity.Cuenta;
 import com.example.lab4grupoa.Repository.CuentaRepository;
@@ -63,4 +63,4 @@ public class ContactoController {
 
         }
     }
-}
+}*/
