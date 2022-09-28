@@ -30,7 +30,6 @@ public class Cuenta {
     @Column(name = "telefono")
     @Digits(integer = 9,fraction = 0)
     @NotBlank(message = "Ingrese Telefono")
-
     private String telefono;
     @Basic
     @Column(name = "admin")
