@@ -58,6 +58,23 @@ public class MascotaController {
         return "newFrmMascota";
     }
 
+    @GetMapping("/edit")
+    public String editarMascota(@ModelAttribute("mascota") Mascota mascota, Model model, @RequestParam("id") int id) {
+
+        Optional<Mascota> optMascota = mascotaRepository.findById(id);
+
+        if (optMascota.isPresent()) {
+            mascota = optMascota.get();
+            model.addAttribute("mascota", mascota);
+            model.addAttribute("listaRazas",razaEspecieRepository.findAll());
+            model.addAttribute("listaCuentas",cuentaRepository.findAll());
+            return "newFrmMascota";
+        } else {
+            return "redirect:/mascota/listar";
+        }
+    }
+
+
     @PostMapping("/save")
     public String filtrarMascotas(Model model, @ModelAttribute("mascota") @Valid Mascota mascota, BindingResult bindingResult){
         if(bindingResult.hasErrors()){

@@ -53,6 +53,8 @@
       <th th:text="${mascota.raza}" style="text-align: center; background-color: white">72673679</th>
       <td><a class="btn btn-primary" th:href="@{'/mascota/edit' + '?id=' + ${mascota.idmascota}}">Editar</a></td>
       <td><a class="btn btn-danger" th:href="@{'/mascota/delete1' + '?id=' + ${mascota.idmascota}}">Borrar</a></td>
+      <td><a class="btn btn-primary" th:href="@{'/mascota/edit' + '?id=' + ${mascota.idmascota}}">Editar</a></td>
+      <td><a class="btn btn-danger" th:href="@{'/mascota/delete' + '?id=' }">Borrar</a></td>
       <th th:text="${mascota.servicios}" style="text-align: center; background-color: white">1</th>
       <td><a class="btn btn-primary" th:href="@{'/mascota/servicio' + '?id=' + ${mascota.getIdmascota()}}">Ver mas</a></td>
     </tr>
