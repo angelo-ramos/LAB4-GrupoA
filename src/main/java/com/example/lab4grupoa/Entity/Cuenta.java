@@ -1,6 +1,10 @@
 package com.example.lab4grupoa.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -16,11 +20,17 @@ public class Cuenta {
     @Basic
     @Column(name = "direccion")
     private String direccion;
-    @Basic
+
+
+
     @Column(name = "password")
+    @Size(min = 8)
     private String password;
-    @Basic
+
     @Column(name = "telefono")
+    @Digits(integer = 9,fraction = 0)
+    @NotBlank(message = "Ingrese Telefono")
+
     private String telefono;
     @Basic
     @Column(name = "admin")
