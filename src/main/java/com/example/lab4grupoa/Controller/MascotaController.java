@@ -5,6 +5,7 @@ import com.example.lab4grupoa.Entity.Mascota;
 import com.example.lab4grupoa.Repository.CuentaRepository;
 import com.example.lab4grupoa.Repository.MascotaRepository;
 import com.example.lab4grupoa.Repository.RazaEspecieRepository;
+import com.example.lab4grupoa.Repository.ServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,9 @@ public class MascotaController {
 
     @Autowired
     CuentaRepository cuentaRepository;
+
+    @Autowired
+    ServicioRepository servicioRepository;
 
     @GetMapping("/listar")
     public String listarMascotas(Model model){
@@ -59,8 +63,9 @@ public class MascotaController {
     }
 
     @GetMapping("/servicio")
-    public String DetalleServicio(Model model){
-
+    public String DetalleServicio(Model model, @RequestParam("id") String id){
+        System.out.println(id);
+        model.addAttribute("listaServicios",servicioRepository.listarServicioMascota(Integer.parseInt(id)));
         return "detalleservicio";
     }
 }

@@ -19,32 +19,31 @@
 </head>
 <body>
 <div class="container px-4 py-5">
-    <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Lista de Mascotas en Veterinaria Candy&Crash</h1>
-    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/new'}">Nueva mascota</a>
+    <h1 class="pb-2 border-bottom" style="text-align: center; background-color: white" >Detalle de servicios</h1>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/servicio/new'}">Nuevo servicio</a>
 
     <table class="table table-striped">
         <thead style="color: #0095f6">
         <tr class="table-info">
             <th style="text-align: center">id</th>
+            <th style="text-align: center">Mascota</th>
+            <th style="text-align: center">Teléfono</th>
             <th style="text-align: center">Hora inicio</th>
             <th style="text-align: center">Duración</th>
             <th style="text-align: center">Entrega</th>
             <th style="text-align: center">Responsable</th>
-            <th style="text-align: center">Borrar</th>
-            <th style="text-align: center">Servicios</th>
-            <th style="text-align: center">Detalle de servicios</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="mascota : ${listaMascotas}">
-            <th th:text="${mascota.nombre}" style="text-align: center; background-color: white">20192258</th>
-            <th th:text="${mascota.anho}" style="text-align: center; background-color: white" >a20192258@pucp.edu.pe</th>
-            <th th:text="${mascota.sexo}" style="text-align: center; background-color: white">993606147</th>
-            <th th:text="${mascota.raza}" style="text-align: center; background-color: white">72673679</th>
-            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Editar</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/shipper/delete' + '?id=' }">Borrar</a></td>
-            <th th:text="${mascota.servicios}" style="text-align: center; background-color: white">1</th>
-            <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' }">Ver mas</a></td>
+        <tr th:each="servicio : ${listaServicios}">
+            <th th:text="${servicio.idservicio}" style="text-align: center; background-color: white">20192258</th>
+            <th th:text="${servicio.nombre}" style="text-align: center; background-color: white" >a20192258@pucp.edu.pe</th>
+            <th th:text="${servicio.telefono}" style="text-align: center; background-color: white">993606147</th>
+            <th th:text="${servicio.hora_inicio}" style="text-align: center; background-color: white">72673679</th>
+            <th th:text="${servicio.duracion}" style="text-align: center; background-color: white">72673679</th>
+            <th th:text="${servicio.entrega}" style="text-align: center; background-color: white">72673679</th>
+            <th th:text="${servicio.responsable}" style="text-align: center; background-color: white">72673679</th>
+
         </tr>
         </tbody>
     </table>
