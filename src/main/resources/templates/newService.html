@@ -9,9 +9,8 @@
 <body>
 <main>
     <div class="container px-4 py-5">
-        <h1 class="pb-2 mb-3 border-bottom">Nuevo Mascota</h1>
-        <a class="btn btn-primary mt-4 mb-4" th:href="@{'/mascota/new'}">Nuevo Dueño</a>
-        <form method="post" th:action="@{'/mascota/save'}" class="mt-2">
+        <h1 class="pb-2 mb-3 border-bottom">Nuevo Servicio</h1>
+        <form method="post" th:action="@{'/mascota/servicio/save'}" class="mt-2">
             <div class="mb-3">
                 <label for="mascotaIdmascota" class="form-label">Mascota</label>
                 <select name="mascotaIdmascota" class="form-select" id="mascotaIdmascota">
@@ -27,16 +26,35 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="razaOtros" class="form-label">Hora de u</label>
-                <input th:field="${mascota.razaOtros}" type="text" class="form-control" name="razaOtros" id="razaOtros"
-                       th:classappend="${#fields.hasErrors('mascota.razaOtros')?'is-invalid':''}">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('mascota.razaOtros')}"
-                     th:errors="${mascota.razaOtros}">
-                    Please choose a username.
-                </div>
+                <label for="horaInicio" class="form-label">Hora Inicio</label>
+                <input type="text" class="form-control" name="horaInicio" id="horaInicio">
+
             </div>
+            <div class="mb-3">
+                <label for="duracion" class="form-label">Hora Inicio</label>
+                <input type="number" class="form-control" name="duracion" id="duracion">
+
+            </div>
+            <div class="mb-3">
+                <label for="entrega" class="form-label">Cuenta/Dueño</label>
+                <select name="entrega" class="form-select" id="entrega">
+                    <option hidden>Seleccionar</option>
+                    <option value="Recojo">Recojo</option>
+                    <option value="Domicilio">Domicilio</option>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="responsableIdresponsable" class="form-label">Cuenta/Dueño</label>
+                <select name="responsableIdresponsable" class="form-select" id="responsableIdresponsable">
+                    <option th:each="responsable : ${listaResponsables}" th:text="${responsable.getNombre()}"
+                            th:value="${responsable.id}"></option>
+                </select>
+            </div>
+
             <a th:href="@{'/mascota/listar'}" class="btn btn-danger">Cancelar</a>
             <button type="submit" class="btn btn-primary">Registrar</button>
+
         </form>
     </div>
 </main>
