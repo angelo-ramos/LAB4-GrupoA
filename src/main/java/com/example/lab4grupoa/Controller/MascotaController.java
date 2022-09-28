@@ -2,6 +2,7 @@ package com.example.lab4grupoa.Controller;
 
 import com.example.lab4grupoa.Dto.ListarMascotasDto;
 import com.example.lab4grupoa.Entity.Mascota;
+import com.example.lab4grupoa.Repository.*;
 import com.example.lab4grupoa.Entity.Servicio;
 import com.example.lab4grupoa.Repository.CuentaRepository;
 import com.example.lab4grupoa.Repository.MascotaRepository;
@@ -22,6 +23,8 @@ import java.util.Optional;
 @RequestMapping("/mascota")
 public class MascotaController {
 
+    @Autowired
+    ResponsableRepository responsableRepository;
     @Autowired
     MascotaRepository mascotaRepository;
 
@@ -98,6 +101,7 @@ public class MascotaController {
     public String NuevoServicio(Model model){
         model.addAttribute("listaMascotas",mascotaRepository.findAll());
         model.addAttribute("listaCuentas",cuentaRepository.findAll());
+        model.addAttribute("listaResponsables",responsableRepository.findAll());
         return "newService";
     }
 }
