@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+  <title>Nueva Dueño</title>
+</head>
+<body>
+<main>
+  <div class="container px-4 py-5">
+    <h1 class="pb-2 mb-3 border-bottom">Nuevo Dueño</h1>
+    <form method="post" th:action="@{'/duenho/save'}" class="mt-2">
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input th:field="${duenho.correo}" type="email" class="form-control" name="correo" id="correo"
+               th:classappend="${#fields.hasErrors('duenho.correo')?'is-invalid':''}">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('duenho.correo')}"
+             th:errors="${duenho.correo}">
+          Please choose a username.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input th:field="${duenho.direccion}" type="text" class="form-control" name="direccion" id="direccion"
+               th:classappend="${#fields.hasErrors('duenho.direccion')?'is-invalid':''}">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('duenho.direccion')}"
+             th:errors="${duenho.direccion}">
+          Please choose a username.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input th:field="${duenho.password}" type="password" class="form-control" name="password" id="password"
+               th:classappend="${#fields.hasErrors('duenho.password')?'is-invalid':''}">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('duenho.password')}"
+             th:errors="${duenho.password}">
+          Please choose a username.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input th:field="${duenho.telefono}" type="text" class="form-control" name="observaciones" id="telefono"
+               th:classappend="${#fields.hasErrors('duenho.telefono')?'is-invalid':''}">
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('duenho.telefono')}"
+             th:errors="${duenho.observaciones}">
+          Please choose a username.
+        </div>
+      </div>
+
+      <a th:href="@{'/duenho/listar'}" class="btn btn-danger">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+  </div>
+</main>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
